@@ -1,15 +1,18 @@
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class objectRunner3
 	{
 		static ArrayList<finalProject> deck = new ArrayList<finalProject>();
+		static String response;
 
 		public static void main(String[] args)
 			{
 				fillArray();
 				printList();
 				hitOrStay();
+				shuffleDeck();
 			}
 		
 		public static void fillArray()
@@ -61,19 +64,37 @@ public class objectRunner3
 			deck.add(new finalProject("2", "Hearts", 2));
 			deck.add(new finalProject("2", "Spades", 2));
 			deck.add(new finalProject("2", "clubs", 2));
+			deck.add(new finalProject("2", "Diamonds", 2));
+
 		}
+	public static void shuffleDeck()
+	{
+		for (int i = 0; i < deck.size(); i++)
+			{
+				printList();
+			}
+	}
+		
 	public static void printList()
 	{
 		
 		for (int i = 0; i < deck.size(); i++)
 			{
-				System.out.println(deck.get(i).getSuit() + " of " + deck.get(i).getType());
+				System.out.println(deck.get(i).getSuit() + 
+						" of " + deck.get(i).getType());
 			}
 	}
 	public static void hitOrStay()
 	{
 		Scanner userInput1 = new Scanner(System.in);
 		System.out.println("Would you like to hit or stay?");
+		String response = userInput1.nextLine();
+		
+		if (response == "hit")
+			System.out.println("You have choosen to hit!");
+		
+		if (response == "stay")
+			System.out.println("You have choosen to stay!");
 		
 		
 	}
